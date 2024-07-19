@@ -2,10 +2,18 @@
 import React, { useRef, useEffect, useState } from 'react';
 import * as faceapi from 'face-api.js';
 import './FaceRecognition.css'; // CSS 파일을 임포트합니다.
+import joyImage from '../assets/joy.png';
+import sadnessImage from '../assets/sadness.png';
+import angerImage from '../assets/anger.png';
+import disgustImage from '../assets/disgust.png';
+import embrassmentImage from '../assets/embrassment.png';
+import fearImage from '../assets/fear.png';
+import ennuiImage from '../assets/ennui.png';
 
 const FaceRecognition = () => {
   const [isModelLoaded, setIsModelLoaded] = useState(false);
   const [borderClass, setBorderClass] = useState('');
+  const [imageSrc, setImageSrc] = useState(null);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
 
@@ -54,19 +62,28 @@ const FaceRecognition = () => {
           const expressions = detections[0].expressions;
           if (expressions.happy > 0.6) {
             setBorderClass('joy');
+            setImageSrc(joyImage);
           } else if (expressions.sad > 0.6) {
             setBorderClass('sadness');
+            setImageSrc(sadnessImage);
           } else if (expressions.angry > 0.6) {
             setBorderClass('anger');
+            setImageSrc(angerImage);
           } else if (expressions.disgusted > 0.6) {
             setBorderClass('disgust');
+            setImageSrc(disgustImage);
           } else if (expressions.surprised > 0.6) {
             setBorderClass('embrassment');
-          } else if (expressions.fearful > 0.6) {
+            setImageSrc(embrassmentImage);
+          } else if (expressions.fear > 0.6) {
             setBorderClass('fear');
+            setImageSrc(fearImage);
           } else if (expressions.neutral > 0.6) {
             setBorderClass('ennui');
+            setImageSrc(ennuiImage);
           }
+        } else {
+          setImageSrc(null);
         }
 
         const displaySize = {
@@ -90,7 +107,7 @@ const FaceRecognition = () => {
 
     const interval = setInterval(() => {
       detectFace();
-    }, 1000);
+    }, 500);
 
     return () => clearInterval(interval);
   }, [isModelLoaded]);
@@ -104,8 +121,10 @@ const FaceRecognition = () => {
           className={`video-feed ${borderClass}`}
           autoPlay
           muted
-        />
-
+          />
+          {imageSrc && (
+            <img src={imageSrc} alt="emotion" className="emotion-image" />
+          )}
       </div>
       <canvas ref={canvasRef} width="720" height="560" className="appcanvas"></canvas>
     </div>

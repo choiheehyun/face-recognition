@@ -1,55 +1,70 @@
-/* src/FaceRecognition.css */
-.appvide{
-    display: flex;
-    align-items: center;
+/* src/components/FaceRecognition.css */
+
+.myapp {
+    text-align: center;
   }
   
-  .appcanvas{
-    position: absolute;
-    top: 340px
-  }
-  
-  .myapp{
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-  }
+.appvide {
+position: relative;
+display: flex;
+justify-content: center;
+}
 
 .video-feed {
-    border: 30px solid transparent; /* 기본값을 투명으로 설정 */
-    width: 720px;
-    height: 560px;
-    display: block;
-    
-  }
-/* joy 기쁨이   */
+width: 720px;
+height: 560px;
+border-top: 10px;
+border-bottom: 10px;
+border-left: 10px;
+border-right: 10px;
+border: 10px solid;
+}
+
+/* 각 표정에 따른 경계선 색상 클래스 */
 .joy {
-border-color: rgb(246, 246, 28);
+border-color: rgb(249, 217, 10);
 }
-/* sadness 슬픔이 */
+
 .sadness {
-border-color: rgb(19, 19, 203);
+border-color: rgb(53, 53, 203);
 }
-/* anger 화남 */
+
 .anger {
-border-color: red;
+border-color: rgb(207, 36, 36);
 }
-/* disgust */
+
 .disgust {
-border-color: rgb(9, 123, 9);
+border-color: rgb(31, 167, 31);
 }
-/* embrassment */
+
 .embrassment {
-border-color: rgb(217, 49, 119);
+border-color: rgb(228, 29, 99);
 }
-/* fear */
+
 .fear {
-border-color: rgb(196, 15, 196);
+border-color: rgb(141, 34, 141);
 }
-/* ennui */
+
 .ennui {
-border-color: black;
+border-color: rgb(87, 15, 188);
+}
+
+.canvas-container {
+position: absolute;
+top: 0;
+left: 0;
+}
+
+.appcanvas {
+width: 720px;
+height: 560px;
+top: 500px;
+margin-right: 200px;
+}
+
+.emotion-image {
+width: 720px;
+height: 560px;
+margin-left: 300px;
+align-self: center;
 }
