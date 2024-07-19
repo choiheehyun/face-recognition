@@ -1,0 +1,55 @@
+/* src/FaceRecognition.css */
+.appvide{
+    display: flex;
+    align-items: center;
+  }
+  
+  .appcanvas{
+    position: absolute;
+    top: 340px
+  }
+  
+  .myapp{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+.video-feed {
+    border: 30px solid transparent; /* 기본값을 투명으로 설정 */
+    width: 720px;
+    height: 560px;
+    display: block;
+    
+  }
+/* joy 기쁨이   */
+.joy {
+border-color: rgb(246, 246, 28);
+}
+/* sadness 슬픔이 */
+.sadness {
+border-color: rgb(19, 19, 203);
+}
+/* anger 화남 */
+.anger {
+border-color: red;
+}
+/* disgust */
+.disgust {
+border-color: rgb(9, 123, 9);
+}
+/* embrassment */
+.embrassment {
+border-color: rgb(217, 49, 119);
+}
+/* fear */
+.fear {
+border-color: rgb(196, 15, 196);
+}
+/* ennui */
+.ennui {
+border-color: black;
+}
