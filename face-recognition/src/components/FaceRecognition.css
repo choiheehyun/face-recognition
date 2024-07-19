@@ -1,70 +1,67 @@
 /* src/components/FaceRecognition.css */
 
 .myapp {
-    text-align: center;
-  }
-  
+  text-align: center;
+}
+
 .appvide {
-position: relative;
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 720px;
+  height: 560px;
 }
 
 .video-feed {
-width: 720px;
-height: 560px;
-border-top: 10px;
-border-bottom: 10px;
-border-left: 10px;
-border-right: 10px;
-border: 10px solid;
+  width: 100%;
+  height: 100%;
+  border: 10px solid;
 }
 
 /* 각 표정에 따른 경계선 색상 클래스 */
 .joy {
-border-color: rgb(249, 217, 10);
+  border-color: rgb(249, 217, 10);
 }
 
 .sadness {
-border-color: rgb(53, 53, 203);
+  border-color: rgb(53, 53, 203);
 }
 
 .anger {
-border-color: rgb(207, 36, 36);
+  border-color: rgb(207, 36, 36);
 }
 
 .disgust {
-border-color: rgb(31, 167, 31);
+  border-color: rgb(31, 167, 31);
 }
 
 .embrassment {
-border-color: rgb(228, 29, 99);
+  border-color: rgb(228, 29, 99);
 }
 
 .fear {
-border-color: rgb(141, 34, 141);
+  border-color: rgb(141, 34, 141);
 }
 
 .ennui {
-border-color: rgb(87, 15, 188);
-}
-
-.canvas-container {
-position: absolute;
-top: 0;
-left: 0;
+  border-color: rgb(87, 15, 188);
 }
 
 .appcanvas {
-width: 720px;
-height: 560px;
-top: 500px;
-margin-right: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* 캔버스가 비디오의 인터액션을 막지 않도록 함 */
 }
 
 .emotion-image {
-width: 720px;
-height: 560px;
-margin-left: 300px;
-align-self: center;
+  width: 720px;
+  height: 560px;
+  margin-left: 20px;/* 이미지가 비디오 옆에 위치하도록 설정 */
 }

@@ -1,7 +1,7 @@
 // src/components/FaceRecognition.js
 import React, { useRef, useEffect, useState } from 'react';
 import * as faceapi from 'face-api.js';
-import './FaceRecognition.css'; // CSS 파일을 임포트합니다.
+import './FaceRecognition.css'; 
 import joyImage from '../assets/joy.png';
 import sadnessImage from '../assets/sadness.png';
 import angerImage from '../assets/anger.png';
@@ -53,8 +53,8 @@ const FaceRecognition = () => {
         const detections = await faceapi.detectAllFaces(
           videoRef.current,
           new faceapi.TinyFaceDetectorOptions({
-            inputSize: 512, // 입력 이미지 크기
-            scoreThreshold: 0.5 // 최소 검출 점수
+            inputSize: 512, 
+            scoreThreshold: 0.5 
           })
         ).withFaceLandmarks().withFaceExpressions();
 
@@ -92,7 +92,6 @@ const FaceRecognition = () => {
         };
 
         if (canvasRef.current) {
-          // 2D 컨텍스트를 생성할 때 willReadFrequently 속성을 true로 설정
           const context = canvasRef.current.getContext('2d', { willReadFrequently: true });
           faceapi.matchDimensions(canvasRef.current, displaySize);
 
@@ -116,17 +115,22 @@ const FaceRecognition = () => {
     <div className='myapp'>
       <h1>Face Recognition using WebRTC</h1>
       <div className='appvide'>
-        <video
-          ref={videoRef}
-          className={`video-feed ${borderClass}`}
-          autoPlay
-          muted
+        <div className='video-wrapper'>
+          <video 
+            ref={videoRef}
+            className={`video-feed ${borderClass}`}
+            autoPlay
+            muted
           />
-          {imageSrc && (
-            <img src={imageSrc} alt="emotion" className="emotion-image" />
-          )}
+          <canvas 
+            ref={canvasRef} 
+            width="720" 
+            height="560" 
+            className="appcanvas">
+          </canvas>
+        </div>
+        {imageSrc && <img src={imageSrc} alt="emotion" className="emotion-image" />}
       </div>
-      <canvas ref={canvasRef} width="720" height="560" className="appcanvas"></canvas>
     </div>
   );
 };
